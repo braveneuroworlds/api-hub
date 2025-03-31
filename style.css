@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 1rem;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#api-list {
+    background-color: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #ddd;
+    font-size: 0.8rem;
+}

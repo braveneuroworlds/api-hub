@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>API Hub</h1>
+        <nav>
+            <a href="#">Home</a> | <a href="#">Browse APIs</a> | <a href="signup.php">Sign Up</a> | <a href="login.php">Log In</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="api-list">
+            <h2>Browse APIs</h2>
+            <div id="api-listings-container">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 API Hub</p>
+    </footer>
+
+    <script>
+        function displayApis(apis) {
+            const container = document.getElementById('api-listings-container');
+            container.innerHTML = ''; // Clear any existing content
+
+            apis.forEach(api => {
+                const apiDiv = document.createElement('div');
+                apiDiv.classList.add('api-item'); // Use the same class for styling
+                apiDiv.innerHTML = `
+                    <h3>${api.name}</h3>
+                    <p>${api.description}</p>
+                    <p>Category: ${api.category}</p>
+                    <a href="${api.documentation_url}">Documentation</a>
+                `;
+                container.appendChild(apiDiv);
+            });
+        }
+
+        // Fetch API data from the server
+        fetch('get_apis.php')
+            .then(response => response.json()) // Parse the JSON response
+            .then(data => displayApis(data))  // Call the displayApis function with the data
+            .catch(error => console.error('Error:', error)); // Handle errors
+    </script>
+</body>
+</html>
